@@ -1,4 +1,4 @@
-/*
+/* 8bit Comparator
  * Copyright (c) 2024 Your Name
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -15,11 +15,21 @@ module tt_um_example (
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
+    wire gt; // A > B
+    wire lt; // A < B
+    wire eq; // A = B
 
-  // All output pins must be assigned. If not used, assign to 0.
-  assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
-  assign uio_out = 0;
-  assign uio_oe  = 0;
+    assign eq = (ui_in == uio_in);
+    assign gt = (ui_in >  uio_in);
+    assign lt = (ui_in <  uio_in);
+
+    // output on lower 3 bits
+    // bit0 = EQ, bit1 = GT, bit2 = LT
+    assign uo_out  = {5'b00000, lt, gt, eq};
+    assign uio_out = 8'b0;
+    assign uio_oe  = 8'b0;
+
+ 
 
   // List all unused inputs to prevent warnings
   wire _unused = &{ena, clk, rst_n, 1'b0};
