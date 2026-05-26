@@ -25,25 +25,26 @@ pinout:
 
   
   # Inputs
-    - A bit 0
-    - A bit 1
-    - A bit 2
-    - A bit 3
-    - A bit 4
-    - A bit 5
-    - A bit 6
-    - A bit 7
+  ui[0]: "A bit 0"
+  ui[1]: "A bit 1"
+  ui[2]: "A bit 2"
+  ui[3]: "A bit 3"
+  ui[4]: "B bit 0"
+  ui[5]: "B bit 1"
+  ui[6]: "B bit 2"
+  ui[7]: "B bit 3"
 
 
   # Outputs
-    - EQ (A equals B)
-    - GT (A greater than B)
-    - LT (A less than B)
-    - none
-    - none
-    - none
-    - none
-    - none
+  uo[0]: "EQ - A equals B"
+  uo[1]: "GT - A greater than B"
+  uo[2]: "LT - A less than B"
+  uo[3]: ""
+  uo[4]: ""
+  uo[5]: ""
+  uo[6]: ""
+  uo[7]: ""
+
 
 
   # Bidirectional pins
