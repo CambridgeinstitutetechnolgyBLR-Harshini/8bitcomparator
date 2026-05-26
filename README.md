@@ -1,6 +1,49 @@
 ![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/test/badge.svg) ![](../../workflows/fpga/badge.svg)
 
 # Tiny Tapeout Verilog Project Template
+# 8-bit Comparator
+
+## Description
+This project implements an 8-bit unsigned comparator using combinational logic.
+It compares two 8-bit inputs A and B and produces three output flags:
+•⁠  ⁠*EQ*: A is equal to B
+•⁠  ⁠*GT*: A is greater than B  
+•⁠  ⁠*LT*: A is less than B
+
+## How it Works
+The comparator takes two 8-bit inputs through the input pins and 
+compares them using combinational logic. Only one output flag 
+is HIGH at any time.
+
+## Truth Table
+
+| A        | B        | EQ | GT | LT |
+|----------|----------|----|----|----|
+| 10101010 | 10101010 | 1  | 0  | 0  |
+| 11001100 | 10101010 | 0  | 1  | 0  |
+| 00110011 | 10101010 | 0  | 0  | 1  |
+
+## Pin Description
+
+### Inputs
+| Pin    | Description        |
+|--------|--------------------|
+| ui_in  | 8-bit input A      |
+| uio_in | 8-bit input B      |
+
+### Outputs
+| Pin       | Bit | Description   |
+|-----------|-----|---------------|
+| uo_out[0] | 0   | EQ flag (A==B)|
+| uo_out[1] | 1   | GT flag (A>B) |
+| uo_out[2] | 2   | LT flag (A<B) |
+
+## How to Test
+Apply any two 8-bit values to ui_in and uio_in.
+Check uo_out bits 0, 1, 2 for comparison result.
+
+## External Hardware
+None required.
 
 - [Read the documentation for project](docs/info.md)
 
